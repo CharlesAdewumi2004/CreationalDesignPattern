@@ -4,6 +4,8 @@
 #include "core/MapSite.h"
 #include "core/Direction.h"
 
+#include <array>
+
 class Room : public MapSite {
 public:
     Room(int roomNo);
@@ -16,7 +18,7 @@ public:
     int GetRoomNumber() const { return _roomNumber; }
 
 private:
-    MapSite* _sides[4];
+    std::array<MapSite *, 4> _sides;
     int _roomNumber;
 };
 

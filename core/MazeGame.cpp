@@ -14,15 +14,15 @@ Maze* MazeGame::CreateMaze() {
     aMaze->AddRoom(r1);
     aMaze->AddRoom(r2);
 
-    r1->SetSide(North, new Wall);
-    r1->SetSide(East, theDoor);
-    r1->SetSide(South, new Wall);
-    r1->SetSide(West, new Wall);
+    r1->SetSide(Direction::North, new Wall);
+    r1->SetSide(Direction::East, theDoor);
+    r1->SetSide(Direction::South, new Wall);
+    r1->SetSide(Direction::West, new Wall);
 
-    r2->SetSide(North, new Wall);
-    r2->SetSide(East, new Wall);
-    r2->SetSide(South, new Wall);
-    r2->SetSide(West, theDoor);
+    r2->SetSide(Direction::North, new Wall);
+    r2->SetSide(Direction::East, new Wall);
+    r2->SetSide(Direction::South, new Wall);
+    r2->SetSide(Direction::West, theDoor);
 
     return aMaze;
 }

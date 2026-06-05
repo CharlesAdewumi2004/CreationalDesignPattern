@@ -19,15 +19,15 @@ Maze* MazeGameFM::CreateMaze() {
     aMaze->AddRoom(r1);
     aMaze->AddRoom(r2);
 
-    r1->SetSide(North, MakeWall());
-    r1->SetSide(East, theDoor);
-    r1->SetSide(South, MakeWall());
-    r1->SetSide(West, MakeWall());
+    r1->SetSide(Direction::North, MakeWall());
+    r1->SetSide(Direction::East, theDoor);
+    r1->SetSide(Direction::South, MakeWall());
+    r1->SetSide(Direction::West, MakeWall());
 
-    r2->SetSide(North, MakeWall());
-    r2->SetSide(East, MakeWall());
-    r2->SetSide(South, MakeWall());
-    r2->SetSide(West, theDoor);
+    r2->SetSide(Direction::North, MakeWall());
+    r2->SetSide(Direction::East, MakeWall());
+    r2->SetSide(Direction::South, MakeWall());
+    r2->SetSide(Direction::West, theDoor);
 
     return aMaze;
 }
