@@ -4,17 +4,17 @@
 Maze::Maze() = default;
 
 Maze::~Maze() {
-    for (Room* r : _rooms) {
-        delete r;
+    for (std::shared_ptr<Room> r : _rooms) {
+        r.reset();
     }
 }
 
-void Maze::AddRoom(Room* r) {
+void Maze::AddRoom(std::shared_ptr<Room> r) {
     _rooms.push_back(r);
 }
 
-Room* Maze::RoomNo(int n) const {
-    for (Room* r : _rooms) {
+std::shared_ptr<Room> Maze::RoomNo(int n) const {
+    for (std::shared_ptr<Room> r : _rooms) {
         if (r->GetRoomNumber() == n) return r;
     }
     return nullptr;

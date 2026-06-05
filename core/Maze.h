@@ -2,6 +2,7 @@
 #define CORE_MAZE_H
 
 #include <vector>
+#include <memory>
 
 class Room;
 
@@ -10,11 +11,11 @@ public:
     Maze();
     ~Maze();
 
-    void AddRoom(Room*);
-    Room* RoomNo(int) const;
+    void AddRoom(std::shared_ptr<Room>);
+    std::shared_ptr<Room> RoomNo(int) const;
 
 private:
-    std::vector<Room*> _rooms;
+    std::vector<std::shared_ptr<Room>> _rooms;
 };
 
 #endif

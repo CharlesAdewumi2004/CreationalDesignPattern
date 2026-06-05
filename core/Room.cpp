@@ -1,14 +1,14 @@
 #include "core/Room.h"
 #include <iostream>
+#include <memory>
 
-Room::Room(int roomNo)
-    : _sides{nullptr, nullptr, nullptr, nullptr}, _roomNumber(roomNo) {}
+Room::Room(int roomNo)  : _sides{nullptr, nullptr, nullptr, nullptr}, _roomNumber(roomNo) {}
 
-MapSite* Room::GetSide(Direction d) const {
+std::shared_ptr<MapSite> Room::GetSide(Direction d) const {
     return _sides[static_cast<size_t>(d)];
 }
 
-void Room::SetSide(Direction d, MapSite* site) {
+void Room::SetSide(Direction d, std::shared_ptr<MapSite> site) {
     _sides[static_cast<size_t>(d)] = site;
 }
 

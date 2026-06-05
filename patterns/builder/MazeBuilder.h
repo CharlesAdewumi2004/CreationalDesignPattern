@@ -1,6 +1,8 @@
 #ifndef PATTERNS_BUILDER_MAZEBUILDER_H
 #define PATTERNS_BUILDER_MAZEBUILDER_H
 
+#include <memory>
+
 class Maze;
 
 class MazeBuilder {
@@ -11,7 +13,7 @@ public:
     virtual void BuildRoom(int room) {}
     virtual void BuildDoor(int roomFrom, int roomTo) {}
 
-    virtual Maze* GetMaze() { return nullptr; }
+    virtual std::shared_ptr<Maze> GetMaze() { return nullptr; }
 
 protected:
     MazeBuilder() = default;

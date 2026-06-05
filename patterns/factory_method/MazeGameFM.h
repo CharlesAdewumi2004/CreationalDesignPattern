@@ -1,6 +1,8 @@
 #ifndef PATTERNS_FACTORY_METHOD_MAZEGAMEFM_H
 #define PATTERNS_FACTORY_METHOD_MAZEGAMEFM_H
 
+#include <memory>
+
 class Maze;
 class Room;
 class Wall;
@@ -13,12 +15,12 @@ class MazeGameFM {
 public:
     virtual ~MazeGameFM() = default;
 
-    Maze* CreateMaze();
+    std::shared_ptr<Maze> CreateMaze();
 
-    virtual Maze* MakeMaze() const;
-    virtual Room* MakeRoom(int n) const;
-    virtual Wall* MakeWall() const;
-    virtual Door* MakeDoor(Room* r1, Room* r2) const;
+    virtual std::shared_ptr<Maze> MakeMaze() const;
+    virtual std::shared_ptr<Room> MakeRoom(int n) const;
+    virtual std::shared_ptr<Wall> MakeWall() const;
+    virtual std::shared_ptr<Door> MakeDoor(std::shared_ptr<Room> r1, std::shared_ptr<Room> r2) const;
 };
 
 // TODO: subclass MazeGameFM as EnchantedMazeGame and BombedMazeGame,

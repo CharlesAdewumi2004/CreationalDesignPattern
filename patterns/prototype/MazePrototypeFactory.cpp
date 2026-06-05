@@ -4,17 +4,17 @@
 #include "core/Room.h"
 #include "core/Door.h"
 
-MazePrototypeFactory::MazePrototypeFactory(Maze* m, Wall* w, Room* r, Door* d)
+MazePrototypeFactory::MazePrototypeFactory(std::shared_ptr<Maze> m, std::shared_ptr<Wall> w, std::shared_ptr<Room> r, std::shared_ptr<Door> d)
     : _prototypeMaze(m), _prototypeWall(w), _prototypeRoom(r), _prototypeDoor(d) {}
 
 // TODO: implement these once Clone() exists on the core types.
 //
-//   Maze* MakeMaze()                       -> _prototypeMaze->Clone();
-//   Wall* MakeWall()                       -> _prototypeWall->Clone();
-//   Room* MakeRoom(int n)                  -> clone + Initialize(n)
-//   Door* MakeDoor(Room* r1, Room* r2)     -> clone + Initialize(r1, r2)
+//   MakeMaze()                           -> _prototypeMaze->Clone();
+//   MakeWall()                           -> _prototypeWall->Clone();
+//   MakeRoom(int n)                      -> clone + Initialize(n)
+//   MakeDoor(shared_ptr<Room>, ...)      -> clone + Initialize(r1, r2)
 
-Maze* MazePrototypeFactory::MakeMaze() const { return nullptr; }
-Wall* MazePrototypeFactory::MakeWall() const { return nullptr; }
-Room* MazePrototypeFactory::MakeRoom(int) const { return nullptr; }
-Door* MazePrototypeFactory::MakeDoor(Room*, Room*) const { return nullptr; }
+std::shared_ptr<Maze> MazePrototypeFactory::MakeMaze() const { return nullptr; }
+std::shared_ptr<Wall> MazePrototypeFactory::MakeWall() const { return nullptr; }
+std::shared_ptr<Room> MazePrototypeFactory::MakeRoom(int) const { return nullptr; }
+std::shared_ptr<Door> MazePrototypeFactory::MakeDoor(std::shared_ptr<Room>, std::shared_ptr<Room>) const { return nullptr; }

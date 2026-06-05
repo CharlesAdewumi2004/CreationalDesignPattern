@@ -1,6 +1,8 @@
 #ifndef PATTERNS_ABSTRACT_FACTORY_MAZEFACTORY_H
 #define PATTERNS_ABSTRACT_FACTORY_MAZEFACTORY_H
 
+#include <memory>
+
 class Maze;
 class Wall;
 class Room;
@@ -11,10 +13,10 @@ public:
     MazeFactory() = default;
     virtual ~MazeFactory() = default;
 
-    virtual Maze* MakeMaze() const;
-    virtual Wall* MakeWall() const;
-    virtual Room* MakeRoom(int n) const;
-    virtual Door* MakeDoor(Room* r1, Room* r2) const;
+    virtual std::shared_ptr<Maze> MakeMaze() const;
+    virtual std::shared_ptr<Wall> MakeWall() const;
+    virtual std::shared_ptr<Room> MakeRoom(int n) const;
+    virtual std::shared_ptr<Door> MakeDoor(std::shared_ptr<Room> r1, std::shared_ptr<Room> r2) const;
 };
 
 // TODO: derive EnchantedMazeFactory and BombedMazeFactory from MazeFactory,

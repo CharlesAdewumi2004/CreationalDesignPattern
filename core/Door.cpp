@@ -1,8 +1,9 @@
 #include "core/Door.h"
 #include "core/Room.h"
 #include <iostream>
+#include <memory>
 
-Door::Door(Room *r1, Room *r2) : _room1(r1), _room2(r2), _isOpen(false) {}
+Door::Door(std::shared_ptr<Room> r1, std::shared_ptr<Room> r2) : _room1(r1), _room2(r2), _isOpen(false) {}
 
 void Door::Enter()
 {
@@ -16,7 +17,7 @@ void Door::Enter()
     }
 }
 
-Room *Door::OtherSideFrom(Room *r)
+std::shared_ptr<Room> Door::OtherSideFrom(std::shared_ptr<Room> r)
 {
     if (r == _room1)
         return _room2;

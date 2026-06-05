@@ -5,16 +5,16 @@
 #include "core/Door.h"
 #include "core/Direction.h"
 
-Maze* MazeGameFM::MakeMaze() const { return new Maze; }
-Room* MazeGameFM::MakeRoom(int n) const { return new Room(n); }
-Wall* MazeGameFM::MakeWall() const { return new Wall; }
-Door* MazeGameFM::MakeDoor(Room* r1, Room* r2) const { return new Door(r1, r2); }
+std::shared_ptr<Maze> MazeGameFM::MakeMaze() const { return std::make_shared<Maze>(); }
+std::shared_ptr<Room> MazeGameFM::MakeRoom(int n) const { return std::make_shared<Room>(n); }
+std::shared_ptr<Wall> MazeGameFM::MakeWall() const { return std::make_shared<Wall>(); }
+std::shared_ptr<Door> MazeGameFM::MakeDoor(std::shared_ptr<Room> r1, std::shared_ptr<Room> r2) const { return std::make_shared<Door>(r1, r2); }
 
-Maze* MazeGameFM::CreateMaze() {
-    Maze* aMaze = MakeMaze();
-    Room* r1 = MakeRoom(1);
-    Room* r2 = MakeRoom(2);
-    Door* theDoor = MakeDoor(r1, r2);
+std::shared_ptr<Maze> MazeGameFM::CreateMaze() {
+    auto aMaze = MakeMaze();
+    auto r1 = MakeRoom(1);
+    auto r2 = MakeRoom(2);
+    auto theDoor = MakeDoor(r1, r2);
 
     aMaze->AddRoom(r1);
     aMaze->AddRoom(r2);

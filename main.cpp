@@ -4,10 +4,9 @@
 
 int main() {
     MazeGame game;
-    Maze* maze = game.CreateMaze();
+    std::shared_ptr<Maze> maze = game.CreateMaze();
 
     std::cout << "Maze created.\n";
 
-    delete maze;
     return 0;
 }

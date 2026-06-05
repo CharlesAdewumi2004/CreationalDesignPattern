@@ -1,22 +1,23 @@
 #ifndef PATTERNS_PROTOTYPE_MAZEPROTOTYPEFACTORY_H
 #define PATTERNS_PROTOTYPE_MAZEPROTOTYPEFACTORY_H
 
+#include <memory>
 #include "patterns/abstract_factory/MazeFactory.h"
 
 class MazePrototypeFactory : public MazeFactory {
 public:
-    MazePrototypeFactory(Maze* m, Wall* w, Room* r, Door* d);
+    MazePrototypeFactory(std::shared_ptr<Maze> m, std::shared_ptr<Wall> w, std::shared_ptr<Room> r, std::shared_ptr<Door> d);
 
-    Maze* MakeMaze() const override;
-    Wall* MakeWall() const override;
-    Room* MakeRoom(int n) const override;
-    Door* MakeDoor(Room* r1, Room* r2) const override;
+    std::shared_ptr<Maze> MakeMaze() const override;
+    std::shared_ptr<Wall> MakeWall() const override;
+    std::shared_ptr<Room> MakeRoom(int n) const override;
+    std::shared_ptr<Door> MakeDoor(std::shared_ptr<Room> r1, std::shared_ptr<Room> r2) const override;
 
 private:
-    Maze* _prototypeMaze;
-    Wall* _prototypeWall;
-    Room* _prototypeRoom;
-    Door* _prototypeDoor;
+    std::shared_ptr<Maze> _prototypeMaze;
+    std::shared_ptr<Wall> _prototypeWall;
+    std::shared_ptr<Room> _prototypeRoom;
+    std::shared_ptr<Door> _prototypeDoor;
 };
 
 // NOTE: Prototype requires you to add a virtual Clone() method to
