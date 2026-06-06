@@ -11,3 +11,4 @@ std::shared_ptr<Door> MazeFactory::MakeDoor(std::shared_ptr<Room> r1, std::share
 
 // TODO: add a CreateMaze(MazeFactory&) builder function (free function or member
 //       on MazeGame) that builds the two-room maze using factory.Make*().
+
