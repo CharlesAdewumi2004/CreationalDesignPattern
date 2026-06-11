@@ -5,6 +5,10 @@
 
 Door::Door(std::shared_ptr<Room> r1, std::shared_ptr<Room> r2) : _room1(r1), _room2(r2), _isOpen(false) {}
 
+void Door::setOpenned(bool open){
+    _isOpen = open;
+}
+
 void Door::Enter()
 {
     if (_isOpen)

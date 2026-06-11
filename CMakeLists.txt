@@ -11,14 +11,17 @@ set(CORE_SOURCES
     core/Door.cpp
     core/Maze.cpp
     core/MazeGame.cpp
+    core/Mazes/NormalMaze.cpp
+    core/Mazes/EnchantedMaze.cpp
+    core/Mazes/bombedMaze.cpp
 )
 
 set(PATTERN_SOURCES
-    patterns/abstract_factory/MazeFactory.cpp
-    patterns/builder/MazeBuilder.cpp
-    patterns/factory_method/MazeGameFM.cpp
-    patterns/prototype/MazePrototypeFactory.cpp
-    patterns/singleton/MazeFactorySingleton.cpp
+    patterns/abstract_factory/MazeFactory.h
+    #patterns/builder/MazeBuilder.cpp
+    #patterns/factory_method/MazeGameFM.cpp
+    #patterns/prototype/MazePrototypeFactory.cpp
+    #patterns/singleton/MazeFactorySingleton.cpp
 )
 
 add_executable(maze main.cpp ${CORE_SOURCES} ${PATTERN_SOURCES})

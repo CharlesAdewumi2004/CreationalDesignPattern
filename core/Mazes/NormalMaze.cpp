@@ -1,9 +1,8 @@
-#include "core/Maze.h"
-#include "core/Room.h"
+#include "core/Mazes/NormalMaze.h"
 
-Maze::Maze() = default;
-Maze::~Maze() = default;
+NormalMaze::NormalMaze() = default;
+NormalMaze::~NormalMaze() = default;
 
-void Maze::mazeType()const noexcept{
+void NormalMaze::mazeType() const noexcept {
     std::cout << "This is a normal maze" << std::endl;
 }

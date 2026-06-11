@@ -9,6 +9,7 @@ class Door : public MapSite {
 public:
     Door(std::shared_ptr<Room> = nullptr, std::shared_ptr<Room> = nullptr);
 
+    void setOpenned(bool);
     void Enter() override;
     std::shared_ptr<Room> OtherSideFrom(std::shared_ptr<Room>);
 

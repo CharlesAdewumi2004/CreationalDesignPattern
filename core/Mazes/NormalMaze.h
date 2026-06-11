@@ -1,14 +1,14 @@
-#ifndef PATTERNS_ABSTRACT_FACTORY_MAZEFACTORY_H
-#define PATTERNS_ABSTRACT_FACTORY_MAZEFACTORY_H
+#ifndef CORE_MAZES_NORMALMAZE_H
+#define CORE_MAZES_NORMALMAZE_H
 
 #include "core/Maze.h"
 
-class Maze {
+class NormalMaze : public Maze {
 public:
-    Maze();
-    virtual ~Maze();
+    NormalMaze();
+    ~NormalMaze() override;
 
-    virtual void mazeType() const noexcept = 0;
+    void mazeType() const noexcept override;
 };
 
 #endif

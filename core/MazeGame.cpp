@@ -1,12 +1,13 @@
 #include "core/MazeGame.h"
 #include "core/Maze.h"
+#include "Mazes/NormalMaze.h"
 #include "core/Room.h"
 #include "core/Wall.h"
 #include "core/Door.h"
 #include "core/Direction.h"
 
 std::shared_ptr<Maze> MazeGame::CreateMaze() {
-    std::shared_ptr<Maze> aMaze = std::make_shared<Maze>();
+    std::shared_ptr<Maze> aMaze = std::make_shared<NormalMaze>();
 
     std::shared_ptr<Room> r1 = std::make_shared<Room>(1);
     std::shared_ptr<Room> r2 = std::make_shared<Room>(2);

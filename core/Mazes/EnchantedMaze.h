@@ -1,9 +1,10 @@
-#ifndef PATTERNS_ABSTRACT_FACTORY_MAZEFACTORY_H
-#define PATTERNS_ABSTRACT_FACTORY_MAZEFACTORY_H
+#ifndef CORE_MAZES_ENCHANTEDMAZE_H
+#define CORE_MAZES_ENCHANTEDMAZE_H
 
 #include "core/Maze.h"
 
-class EnchantedMaze : public Maze{
+class EnchantedMaze : public Maze {
+public:
     EnchantedMaze();
     ~EnchantedMaze() override;
 
